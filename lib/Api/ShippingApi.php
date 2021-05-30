@@ -58,7 +58,7 @@ class ShippingApi
 
     public function __construct(Configuration $config)
     {
-        $this->client = new Client(['vertiry'=>false]);
+        $this->client = new Client(['vertify'=>false]);
         $this->config = $config;
         $this->headerSelector = new HeaderSelector();
     }
