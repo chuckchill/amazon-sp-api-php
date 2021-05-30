@@ -17,7 +17,7 @@ class SellingPartnerOAuth
      */
     public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret): ?string
     {
-        $client = new Client();
+        $client = new Client(['vertiry'=>false]);
         $params = [
             'grant_type' => 'refresh_token',
             'refresh_token' => $refreshToken,
@@ -50,7 +50,7 @@ class SellingPartnerOAuth
         string $clientSecret,
         string $redirectUri
     ): ?string {
-        $client = new Client();
+        $client = new Client(['vertiry'=>false]);
         $params = [
             'grant_type' => 'authorization_code',
             'client_id' => $clientId,

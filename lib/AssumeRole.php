@@ -19,9 +19,9 @@ class AssumeRole
      */
     public function __construct(string $accessKeyId, string $secretAccessKey, string $sessionToken)
     {
-        $this->accessKeyId = $accessKeyId;
+        $this->accessKeyId     = $accessKeyId;
         $this->secretAccessKey = $secretAccessKey;
-        $this->sessionToken = $sessionToken;
+        $this->sessionToken    = $sessionToken;
     }
 
     public function getAccessKeyId(): string
@@ -63,8 +63,8 @@ class AssumeRole
             ],
         ];
 
-        $host = 'sts.amazonaws.com';
-        $uri = '/';
+        $host         = 'sts.amazonaws.com';
+        $uri          = '/';
         $signedHeader = [];
 //        [
 //            'service' => 'sts',
@@ -97,7 +97,8 @@ class AssumeRole
         }
 
         $client = new Client([
-            'base_uri' => 'https://'.$host,
+            'vertiry' => false,
+            'base_uri' => 'https://' . $host,
         ]);
 
         $requestOptions['headers'] = array_merge($requestOptions['headers'], $signedHeader);
@@ -105,7 +106,7 @@ class AssumeRole
         try {
             $response = $client->post($uri, $requestOptions);
 
-            $json = json_decode($response->getBody(), true);
+            $json        = json_decode($response->getBody(), true);
             $credentials = $json['AssumeRoleResponse']['AssumeRoleResult']['Credentials'] ?? null;
 //            $tokens = [
 //                'access_key' => $credentials['AccessKeyId'],

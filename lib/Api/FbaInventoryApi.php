@@ -49,7 +49,7 @@ class FbaInventoryApi
 
     public function __construct(Configuration $config)
     {
-        $this->client = new Client();
+        $this->client = new Client(['vertiry'=>false]);
         $this->config = $config;
         $this->headerSelector = new HeaderSelector();
     }
