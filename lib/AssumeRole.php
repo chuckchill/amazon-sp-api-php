@@ -97,7 +97,7 @@ class AssumeRole
         }
 
         $client = new Client([
-            'vertify' => false,
+            'verify' => false,
             'base_uri' => 'https://' . $host,
         ]);
 

@@ -54,7 +54,7 @@ class OrdersApi
 
     public function __construct(Configuration $config)
     {
-        $this->client = new Client(['vertify'=>false]);
+        $this->client = new Client(['verify'=>false]);
         $this->config = $config;
         $this->headerSelector = new HeaderSelector();
     }
